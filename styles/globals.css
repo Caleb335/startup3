@@ -17,3 +17,52 @@ a {
   margin: 0;
   font-family: "DM Sans", sans-serif;
 }
+
+/* buttons global styles */
+.btn-head {
+  background: var(--head-btn);
+  color: var(--secondary);
+  text-transform: capitalize;
+  width: 100px;
+  height: 37px;
+  border: none;
+  border-radius: 100px;
+  margin: 0 12px;
+}
+.btn-head:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.btn-search {
+  background: var(--btn-primary);
+  color: var(--secondary);
+  width: 110px;
+  height: 50px;
+  border: none;
+  border-radius: 30px;
+  margin: 0 8px;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 576px) {
+  .btn-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+/* global styles for buttons ends here */
+
+/* global styles for card component starts here */
+.card {
+  width: 470px;
+  height: 100%;
+  display: flex;
+  margin: 0 0 60px 0;
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+  }
+}

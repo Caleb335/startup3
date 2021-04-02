@@ -1,0 +1,48 @@
+.root {
+  height: 100%;
+  padding: 0 120px;
+  padding-top: 50px;
+}
+.root h3 {
+  color: var(--primary);
+  text-align: center;
+  font-size: 42px;
+  font-weight: 700;
+}
+.testimonials {
+  padding-top: 45px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.textContainer {
+  padding: 0 14px;
+}
+.details {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 28px;
+  color: var(--light-text);
+}
+.name {
+  color: var(--primary);
+  font-size: 14px;
+  line-height: 26px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-top: 20px;
+}
+.company {
+  color: var(--light-text);
+  text-transform: capitalize;
+}
+
+/* takes the width from a mobile perspective to the maximum screen size 
+   of a mobile phone.
+ */
+@media only screen and (min-width: 0px) and (max-width: 576px) {
+  .root {
+    border: 1px solid red;
+    padding: 0 12px;
+  }
+}

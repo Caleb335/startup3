@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "header";
+import Header from "./Header";
 import PropTyes from "prop-types";
 
 const Layout = ({ children }) => {
-  retun(
+  return (
     <>
       <Header />
       {children}

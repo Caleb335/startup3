@@ -1,0 +1,11 @@
+/* The colors of this page can be used accross this 
+ * codebased by assigning them as css values to the 
+ * color or background properties 
+*/
+:root {
+  --primary: #2f1893;
+  --secondary: #fff;
+  --btn-primary: #25dac5;
+  --head-btn: #482be7;
+  --light-text: rgba(21, 20, 57, 0.4);
+}

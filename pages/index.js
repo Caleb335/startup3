@@ -1,5 +1,10 @@
 import HomeContainer from "../src/container";
+import Layout from "../src/Layout";
 
 export default function Home() {
-  return <HomeContainer />;
+  return (
+    <Layout>
+      <HomeContainer />
+    </Layout>
+  );
 }
