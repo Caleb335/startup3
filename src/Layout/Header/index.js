@@ -13,6 +13,13 @@ const Hero = styled.section`
     opacity: 0.3;
     text-align: center;
     margin-top: -20px;
+    animation: fade-term 1.3s ease forwards 0.7s;
+  }
+
+  @keyframes fade-term {
+    to {
+      oapcity: 0.3;
+    }
   }
 
   @media only screen and (min-width: 0px) and (max-width: 576px) {
