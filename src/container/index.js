@@ -1,89 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import style from "./style/index.module.css";
 import Card from "../components/Card";
 import axios from "axios";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
-const endpoint = "https://dummyapi.io/data/api/posts";
-const appId = "60673cc5f7282deb7741025a";
+const posts = "https://jsonplaceholder.typicode.com/posts";
+
+const images = [
+  {
+    path: "img/Mask.png",
+  },
+];
 
 const HomeContainer = () => {
-  const [data, setData] = React.useState({
-    posts: [],
-    loading: false,
-  });
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  React.useEffect(async () => {
-    const posts = await axios.get(endpoint, {
-      headers: {
-        "app-id": appId,
-      },
-    });
+  const getPosts = () => {
+    setLoading(true);
+    axios
+      .get(posts)
+      .then((res) => {
+        setData(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  };
 
-    setData(posts.data);
-    console.log(posts);
-  });
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   return (
     <section className={style.root}>
       <h3>Testimonials</h3>
-      <div className={style.testimonials}>
-        <Card>
-          <div className={style.imgContainer}>
-            <img src="/img/Mask.png" alt="user" />
-          </div>
-          <div className={style.textContainer}>
-            <p className={style.details}>
-              Extremely easy to use, helped us develop our Vote for George
-              Washington micro-site extremely quickly! We will definitely use it
-              again for other projects
-            </p>
-            <p className={style.name}>Jasmin andrews</p>
-            <p className={style.company}>Microsoft</p>
-          </div>
-        </Card>
-        <Card>
-          <div className={style.imgContainer}>
-            <img src="/img/Userpic.png" alt="user" />
-          </div>
-          <div className={style.textContainer}>
-            <p className={style.details}>
-              Extremely easy to use, helped us develop our Vote for George
-              Washington micro-site extremely quickly! We will definitely use it
-              again for other projects
-            </p>
-            <p className={style.name}>Austin Campbell</p>
-            <p className={style.company}>Dropbox</p>
-          </div>
-        </Card>
-        <Card>
-          <div className={style.imgContainer}>
-            <img src="/img/Mask (1).png" alt="user" />
-          </div>
-          <div className={style.textContainer}>
-            <p className={style.details}>
-              Extremely easy to use, helped us develop our Vote for George
-              Washington micro-site extremely quickly! We will definitely use it
-              again for other projects
-            </p>
-            <p className={style.name}>Jasmin andrews</p>
-            <p className={style.company}>Microsoft</p>
-          </div>
-        </Card>
-        <Card>
-          <div className={style.imgContainer}>
-            <img src="/img/Mask (2).png" alt="user" />
-          </div>
-          <div className={style.textContainer}>
-            <p className={style.details}>
-              Extremely easy to use, helped us develop our Vote for George
-              Washington micro-site extremely quickly! We will definitely use it
-              again for other projects
-            </p>
-            <p className={style.name}>Aubrey turner</p>
-            <p className={style.company}>Designmodo</p>
-          </div>
-        </Card>
-      </div>
+      {loading ? (
+        <Loader
+          type="Bars"
+          color="#2f1893"
+          height={30}
+          width={30}
+          className={style.loader}
+        />
+      ) : (
+        <div className={style.testimonials}>
+          {data.map((post, index) => {
+            return (
+              <Card key={index}>
+                <div className={style.imgContainer}>
+                  {images.map((image, index) => {
+                    return <img src={image.path} alt="user" key={index} />;
+                  })}
+                </div>
+                <div className={style.textContainer}>
+                  <p className={style.details}>{post.body}</p>
+                  <p className={style.name} key={index}>
+                    audrey turner
+                  </p>
+                  <p className={style.company}>Microsoft</p>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 };
