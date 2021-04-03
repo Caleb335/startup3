@@ -17,7 +17,7 @@ const Hero = styled.section`
 
   @media only screen and (min-width: 0px) and (max-width: 576px) {
     .terms {
-      margin-top: 45px;
+      margin-top: 50px;
     }
   }
 
@@ -59,7 +59,7 @@ const Nav = styled.header`
     }
   }
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
     padding: 24px 20px;
 
     .brand {
@@ -69,6 +69,23 @@ const Nav = styled.header`
 
     nav ul li {
       font-size: 14px;
+    }
+  }
+
+  @media only screen and (min-width: 0px) and (max-width: 576px) {
+    padding: 24px 15px;
+    white-space: nowrap;
+
+    .brand {
+      font-size: 15px;
+      padding: 4px 0;
+    }
+    nav {
+      margin-left: 10px;
+    }
+    nav ul li {
+      font-size: 14px;
+      padding: 6px 4px;
     }
   }
 `;
@@ -150,10 +167,11 @@ const Search = styled.div`
     mix-blend-mode: normal;
     background: var(--primary);
     outline: none;
+    padding: 0 15px;
+    color: var(--secondary);
 
     &::placeholder {
       line-height: 26px;
-      padding: 0 15px;
       color: var(--secondary);
       opacity: 1;
     }
@@ -164,7 +182,7 @@ const Search = styled.div`
 
   @media only screen and (min-width: 0px) and (max-width: 576px) {
     width: 100%;
-    padding: 0 8px;
+    padding: 18px 8px;
 
     & input {
       width: 100%;
