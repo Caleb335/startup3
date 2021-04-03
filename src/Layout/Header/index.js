@@ -246,15 +246,15 @@ const Header = () => {
       </Nav>
       <HeroTexts>
         <div className="text-containers">
-          <h1>Let’s make design fast and easy</h1>
-          <p>
+          <h1 className="slide-in-left">Let’s make design fast and easy</h1>
+          <p className="slide-in-right">
             The most important part of the Startup is the samples. The samples
             form a set of 25 usable pages you can use as is or you can add new
             blocks from UI Kit.
           </p>
         </div>
       </HeroTexts>
-      <Search>
+      <Search className="fade-in">
         <input
           type="text"
           name="email"
